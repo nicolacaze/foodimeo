@@ -47,6 +47,10 @@ class App extends Component {
         <iframe title="video-player" width="560" height="315"
         src={this.state.video && 'https://www.youtube.com/embed/'+ this.state.video.youTubeId} frameBorder="0" allowFullScreen>
         </iframe>
+        <div className="main">
+          <div className="container left"></div>
+          <div className="container right"></div>
+        </div>
       </div>
     );
   }
