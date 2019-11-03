@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.scss';
-import pasta from './img/pasta.png';
-import soup from './img/soup.png';
 require('dotenv').config();
 
 
@@ -42,22 +40,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <div className="controls">
+        <div className="controls">
           <input value={this.state.searchInput} onChange={this.updateInput}/>
           <button onClick={this.searchRecipe}>Search</button>
         </div>
         <iframe title="video-player" width="560" height="315"
         src={this.state.video && 'https://www.youtube.com/embed/'+ this.state.video.youTubeId} frameBorder="0" allowFullScreen>
-        </iframe> */}
+        </iframe>
         <div className="main">
-          <div className="container left">
-            <img src={pasta} alt="pasta"/>
-            <div className="ingredients-bg"></div>
-            <h2>About the project</h2>
-          </div>
-          <div className="container right">
-            <img src={soup} alt="soup" />
-          </div>
+          <div className="container left"></div>
+          <div className="container right"></div>
         </div>
       </div>
     );
