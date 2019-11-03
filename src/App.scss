@@ -1,8 +1,9 @@
+$bg-img: url('img/nordwood-themes-wtevVfGYwnM-unsplash.jpg');
+
 body {
   display: flex;
   justify-content: center;
-  transform: rotate(0deg);
-  transform-origin: bottom center;
+  
 
   input {
     display: block;
@@ -15,7 +16,38 @@ body {
 
 .container {
   border: 1px solid #000;
-  height: 400px;
-  width: 50%;
+  height: 100vh;
+  width: 50vw;
+  transform: rotate(0deg);
+  transform-origin: bottom center;
 }
 
+.controls {
+  position: absolute;
+}
+
+iframe {
+  position: absolute;
+}
+
+img {
+  width: 400px;
+  transform: rotate(45deg);
+  transform-origin: center center;
+}
+
+.ingredients-bg {
+  width: 200px;
+  height: 200px;
+  border-radius: 1rem;
+  background: no-repeat center / cover $bg-img;
+
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  } to {
+    transform: rotate(360);
+  }
+}
