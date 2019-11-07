@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import './App.scss';
+import images from './images';
 import pasta from './img/pasta.png';
-import soup from './img/soup.png';
 require('dotenv').config();
 
 
 class App extends Component {
+  
 
   constructor() {
     super();
     this.state = {
       searchInput: '',
       video: {},
+      images: {},
     };
   }
 
@@ -34,12 +36,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // const images = imageLoader();
+    // this.setState({ images });
     this.getData()
     .then(({ videos }) => this.setState({ video: videos[0] }))
     .catch(err => console.log(err));
   }
 
   render() {
+    // const { pasta, soup } = this.state.images;
     return (
       <div className="App">
         {/* <div className="controls">
@@ -51,12 +56,11 @@ class App extends Component {
         </iframe> */}
         <div className="main">
           <div className="container left">
-            <img src={pasta} alt="pasta"/>
             <div className="ingredients-bg"></div>
             <h2>About the project</h2>
           </div>
           <div className="container right">
-            <img src={soup} alt="soup" />
+            {/* <img src={soup.src} alt={soup.description} /> */}
           </div>
         </div>
       </div>
