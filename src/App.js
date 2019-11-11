@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.scss';
-import images from './images';
 import pasta from './img/pasta.png';
+import soup from './img/soup.png';
+import coffee from './img/coffee.png';
+import mixedPlate from './img/mixed-plate.png';
 require('dotenv').config();
 
 
 class App extends Component {
-  
 
   constructor() {
     super();
@@ -36,8 +37,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const images = imageLoader();
-    // this.setState({ images });
     this.getData()
     .then(({ videos }) => this.setState({ video: videos[0] }))
     .catch(err => console.log(err));
@@ -56,11 +55,28 @@ class App extends Component {
         </iframe> */}
         <div className="main">
           <div className="container left">
-            <div className="ingredients-bg"></div>
+            <div className="grid-4">
+              <div className="ingredients-bg"></div>
+              <div className="pancake-plate"></div>
+              <div className="mixed-plate"></div>
+              <div className=""></div>
+              <div className="pasta-plate">
+                <img src={pasta} alt={pasta.description} />
+              </div>
+            </div>
+            
             <h2>About the project</h2>
+           
           </div>
           <div className="container right">
-            {/* <img src={soup.src} alt={soup.description} /> */}
+            <img src={soup} alt={soup.description} />
+            <div>
+              <p>Pasta with feta</p>
+              <p>20 min</p>
+              <p>cooking time</p>
+            </div>
+            <h2>All around</h2>
+            <img className="coffee" src={coffee} alt={coffee.description} />
           </div>
         </div>
       </div>

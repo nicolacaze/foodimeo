@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap');
 
-$bg-img: url('img/nordwood-themes-wtevVfGYwnM-unsplash.jpg');
 $baskerville: 'Libre Baskerville', Helvetica, serif;
+$bg-img: url('img/nordwood-themes-wtevVfGYwnM-unsplash.jpg');
+$pancake-plate: url('img/pancake-plate.png');
+$mixed-plate: url('img/mixed-plate.png');
 
 body {
   display: flex;
   justify-content: center;
   font-family: $baskerville;
-  overflow: hidden;
+  // overflow: hidden;
 
   input {
     display: block;
@@ -45,41 +47,108 @@ iframe {
 img {
   width: 400px;
   transform-origin: center center;
-  // transform: rotate(0);
-  animation: rotation 1s linear forwards;
 }
 
 .coffee {
   width: 200px;
 }
 
-.ingredients-bg {
-  position: relative;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  border-radius: 1rem;
-  
-}
+.grid-4 {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  width: 400px;
 
-.ingredients-bg:before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  z-index: -1;
-  background: no-repeat center / cover $bg-img;
-  // -webkit-transform: rotate(30deg);
-  // transform: rotate(30deg);
+  .ingredients-bg {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 1rem;
+  }
+  
+  .ingredients-bg:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: no-repeat center / cover $bg-img;
+    }
+
+  .pancake-plate {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 1rem;
   }
 
-@keyframes rotation {
+  .pancake-plate:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    // top: 10%;
+    left: -100%;
+    z-index: -1;
+    background: no-repeat center / cover $pancake-plate;
+    transform: rotate(30deg);
+    animation: counter-clockwise 1s linear forwards;
+  }
+
+  .mixed-plate {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 1rem;
+  }
+
+  .mixed-plate:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    bottom: 10%;
+    right: -100%;
+    z-index: -1;
+    background: no-repeat center / cover $mixed-plate;
+    transform: rotate(30deg);
+    animation: counter-clockwise 1s linear forwards;
+  }
+
+  .pasta-plate {
+    position: absolute;
+    left: 75px;
+    top: 75px;
+    transform-origin: center center;
+  
+    img {
+      width: 250px;
+      transform: rotate(60deg);
+      animation: clockwise 1s linear forwards;
+    }
+
+  }
+}
+
+
+@keyframes counter-clockwise {
   from {
     transform: rotate(0deg);
   } 
   to {
-    transform: rotate(90deg);
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes clockwise {
+  from {
+    transform: rotate(60deg);
+  } 
+  to {
+    transform: rotate(95deg);
   }
 }
